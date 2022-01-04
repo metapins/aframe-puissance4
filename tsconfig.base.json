@@ -14,7 +14,38 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@marcbuils/puissance4-game/domain": [
+        "libs/puissance4-game/domain/src/index.ts"
+      ],
+      "@marcbuils/puissance4-game/feature-game": [
+        "libs/puissance4-game/feature-game/src/index.ts"
+      ],
+      "@marcbuils/puissance4-game/feature-game-arches": [
+        "libs/puissance4-game/feature-game-arches/src/index.ts"
+      ],
+      "@marcbuils/puissance4-game/feature-game-forest": [
+        "libs/puissance4-game/feature-game-forest/src/index.ts"
+      ],
+      "@marcbuils/puissance4-game/ui-button": [
+        "libs/puissance4-game/ui-button/src/index.ts"
+      ],
+      "@marcbuils/puissance4-game/ui-buttons": [
+        "libs/puissance4-game/ui-buttons/src/index.ts"
+      ],
+      "@marcbuils/puissance4-game/ui-pawns": [
+        "libs/puissance4-game/ui-pawns/src/index.ts"
+      ],
+      "@marcbuils/puissance4-game/ui-player": [
+        "libs/puissance4-game/ui-player/src/index.ts"
+      ],
+      "@marcbuils/puissance4-game/ui-puissance4": [
+        "libs/puissance4-game/ui-puissance4/src/index.ts"
+      ],
+      "@marcbuils/puissance4-game/ui-reset": [
+        "libs/puissance4-game/ui-reset/src/index.ts"
+      ]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

@@ -29,7 +29,7 @@
       }
     ]
   },
-  "defaultProject": "puissance4",
+  "defaultProject": "puissance4-aframe",
   "generators": {
     "@nrwl/web:application": {
       "style": "scss",

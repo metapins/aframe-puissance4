@@ -1,0 +1,84 @@
+{
+  "projectType": "application",
+  "root": "apps/puissance4-aframe",
+  "sourceRoot": "apps/puissance4-aframe/src",
+  "tags": ["application"],
+  "targets": {
+    "build": {
+      "executor": "@nrwl/web:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "outputPath": "dist/apps/puissance4-aframe",
+        "compiler": "swc",
+        "index": "apps/puissance4-aframe/src/index.html",
+        "baseHref": "/",
+        "main": "apps/puissance4-aframe/src/main.ts",
+        "polyfills": "apps/puissance4-aframe/src/polyfills.ts",
+        "tsConfig": "apps/puissance4-aframe/tsconfig.app.json",
+        "assets": [
+          "apps/puissance4-aframe/src/favicon.ico",
+          "apps/puissance4-aframe/src/assets"
+        ],
+        "styles": ["apps/puissance4-aframe/src/styles.scss"],
+        "scripts": []
+      },
+      "configurations": {
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "apps/puissance4-aframe/src/environments/environment.ts",
+              "with": "apps/puissance4-aframe/src/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false
+        },
+        "development": {
+          "fileReplacements": [],
+          "optimization": false,
+          "outputHashing": "none",
+          "sourceMap": true,
+          "namedChunks": true,
+          "extractLicenses": false,
+          "vendorChunk": true
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/web:dev-server",
+      "options": {
+        "buildTarget": "puissance4-aframe:build",
+        "proxyConfig": "apps/puissance4-aframe/proxy.conf.json"
+      },
+      "configurations": {
+        "production": {
+          "buildTarget": "puissance4-aframe:build:production"
+        },
+        "development": {
+          "buildTarget": "puissance4-aframe:build:development",
+          "port": 4201
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/puissance4-aframe/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/puissance4-aframe"],
+      "options": {
+        "jestConfig": "apps/puissance4-aframe/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  }
+}

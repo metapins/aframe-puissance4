@@ -1,0 +1,23 @@
+{
+  "root": "libs/puissance4-game/feature-game",
+  "sourceRoot": "libs/puissance4-game/feature-game/src",
+  "projectType": "library",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/puissance4-game/feature-game/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/puissance4-game/feature-game"],
+      "options": {
+        "jestConfig": "libs/puissance4-game/feature-game/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": ["type:feature", "scope:puissance4-game"]
+}

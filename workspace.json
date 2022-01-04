@@ -1,7 +1,18 @@
 {
   "version": 2,
   "projects": {
-    "puissance4": "apps/puissance4",
-    "puissance4-e2e": "apps/puissance4-e2e"
+    "puissance4-aframe": "apps/puissance4-aframe",
+    "puissance4-aframe-e2e": "apps/puissance4-aframe-e2e",
+    "puissance4-game-domain": "libs/puissance4-game/domain",
+    "puissance4-game-feature-game": "libs/puissance4-game/feature-game",
+    "puissance4-game-feature-game-arches": "libs/puissance4-game/feature-game-arches",
+    "puissance4-game-feature-game-forest": "libs/puissance4-game/feature-game-forest",
+    "puissance4-game-ui-button": "libs/puissance4-game/ui-button",
+    "puissance4-game-ui-buttons": "libs/puissance4-game/ui-buttons",
+    "puissance4-game-ui-pawns": "libs/puissance4-game/ui-pawns",
+    "puissance4-game-ui-player": "libs/puissance4-game/ui-player",
+    "puissance4-game-ui-puissance4": "libs/puissance4-game/ui-puissance4",
+    "puissance4-game-ui-reset": "libs/puissance4-game/ui-reset",
+    "puissance4-server": "apps/puissance4-server"
   }
 }

@@ -1,0 +1,52 @@
+{
+  "root": "apps/puissance4-server",
+  "sourceRoot": "apps/puissance4-server/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/node:build",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/puissance4-server",
+        "main": "apps/puissance4-server/src/main.ts",
+        "tsConfig": "apps/puissance4-server/tsconfig.app.json",
+        "assets": ["apps/puissance4-server/src/assets"]
+      },
+      "configurations": {
+        "production": {
+          "optimization": true,
+          "extractLicenses": true,
+          "inspect": false,
+          "fileReplacements": [
+            {
+              "replace": "apps/puissance4-server/src/environments/environment.ts",
+              "with": "apps/puissance4-server/src/environments/environment.prod.ts"
+            }
+          ]
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/node:execute",
+      "options": {
+        "buildTarget": "puissance4-server:build"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/puissance4-server/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/puissance4-server"],
+      "options": {
+        "jestConfig": "apps/puissance4-server/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": ["app"]
+}

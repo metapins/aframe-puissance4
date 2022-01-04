@@ -1,0 +1,23 @@
+{
+  "root": "libs/puissance4-game/ui-button",
+  "sourceRoot": "libs/puissance4-game/ui-button/src",
+  "projectType": "library",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/puissance4-game/ui-button/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/puissance4-game/ui-button"],
+      "options": {
+        "jestConfig": "libs/puissance4-game/ui-button/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": ["ui"]
+}

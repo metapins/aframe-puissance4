@@ -1,0 +1,23 @@
+{
+  "root": "libs/puissance4-game/ui-reset",
+  "sourceRoot": "libs/puissance4-game/ui-reset/src",
+  "projectType": "library",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/puissance4-game/ui-reset/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/puissance4-game/ui-reset"],
+      "options": {
+        "jestConfig": "libs/puissance4-game/ui-reset/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": ["ui"]
+}

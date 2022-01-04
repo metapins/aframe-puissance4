@@ -1,0 +1,7 @@
+{
+  "version": 2,
+  "projects": {
+    "puissance4": "apps/puissance4",
+    "puissance4-e2e": "apps/puissance4-e2e"
+  }
+}

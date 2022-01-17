@@ -1,6 +1,8 @@
 import { AFrameElement, customElement } from '@metapins/aframe-element';
 import { html } from 'lit';
-import { Color } from 'three';
+
+declare const AFRAME: any;
+const { Color } = AFRAME.THREE;
 
 @customElement('p4g-game-player')
 export class GamePlayerElement extends AFrameElement {

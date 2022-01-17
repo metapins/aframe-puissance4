@@ -7,7 +7,7 @@ export class GameForestElement extends AFrameElement {
     return html`
       <a-entity
         hide-in-ar-mode
-        environment="preset: arches; shadow: true; fog: 0.01; skyType: atmosphere;"
+        environment="preset: arches; shadow: false; skyType: atmosphere;"
       ></a-entity>
     `;
   }

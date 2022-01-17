@@ -8,13 +8,15 @@ class PawnsService {
     nextPlayer: string | null,
     winner: string | null
   ) {
-    const puissance4Element = document.querySelector('[p4g-game-puissance4]');
+    const puissance4Element: any = document.querySelector(
+      '[p4g-game-puissance4]'
+    );
 
     if (!NAF.utils.isMine(puissance4Element)) {
       NAF.utils.takeOwnership(puissance4Element);
     }
 
-    puissance4Element.setAttribute('p4g-game-puissance4', {
+    puissance4Element?.setAttribute('p4g-game-puissance4', {
       pawns: JSON.stringify(pawns),
       nextPlayer: JSON.stringify(nextPlayer),
       winner: JSON.stringify(winner),

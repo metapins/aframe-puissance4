@@ -22,6 +22,7 @@ import { BehaviorSubject } from 'rxjs';
 import { routes } from './puissance4-game-feature-game.routes';
 
 declare const NAF: any;
+declare const AFRAME: any; // @todo: replace it by import { AFrame } from 'aframe';
 
 @customElement('p4g-game')
 export class GameElement extends LitElement implements BeforeEnterObserver {
@@ -102,9 +103,12 @@ export class GameElement extends LitElement implements BeforeEnterObserver {
   }
 
   private updateName(name: string) {
-    document
-      .querySelector('#local-avatar')
-      .setAttribute('p4g-game-player', 'name', name);
+    // @todo: replace any by Entity
+    (document?.querySelector('#local-avatar') as any).setAttribute(
+      'p4g-game-player',
+      'name',
+      name
+    );
   }
 
   // Render the UI as a function of component state
@@ -124,6 +128,8 @@ export class GameElement extends LitElement implements BeforeEnterObserver {
       audio: false;
       adapter: wseasyrtc;
     "
+        @enter-vr=${() => this.isVRMode$.next(true)}
+        @exit-vr=${() => this.isVRMode$.next(false)}
       >
         <a-assets>
           <a-asset-item
@@ -189,8 +195,6 @@ export class GameElement extends LitElement implements BeforeEnterObserver {
           id="camera-rig"
           networked="template: #camera-rig-template;"
           position="0 0 7"
-          @enter-vr=${() => this.isVRMode$.next(true)}
-          @exit-vr=${() => this.isVRMode$.next(false)}
         >
           <a-entity
             id="local-avatar"
@@ -199,26 +203,25 @@ export class GameElement extends LitElement implements BeforeEnterObserver {
             wasd-controls
             look-controls="touchEnabled: false; magicWindowTrackingEnabled: false;"
             networked="template: #head-template;"
-            visible="false"
           >
           </a-entity>
 
           ${observe(this.isVRMode$, (isVRMode) =>
-            isVRMode && AFRAME.utils.device.isMobile()
+            isVRMode && !AFRAME.utils.device.isMobile()
               ? html`
                   <a-entity
                     shadow
                     laser-controls="hand: left"
-                    blink-controls="cameraRig: #camera-rig, teleportOrigin: #local-avatar; collisionEntities: .environmentGround"
-                    networked="template: #left-hand-template; attachTemplateToLocal: true;"
-                    raycaster="objects: .clickable; line: 'color: red; opacity: 0.75'"
+                    blink-controls="cameraRig: #camera-rig; teleportOrigin: #local-avatar; collisionEntities: .environmentGround"
+                    networked="template: #left-hand-template; attachTemplateToLocal: false;"
+                    raycaster="objects: .clickable;"
                   ></a-entity>
                   <a-entity
                     shadow
                     laser-controls="hand: right"
                     blink-controls="cameraRig: #camera-rig; teleportOrigin: #local-avatar; collisionEntities: .environmentGround"
-                    networked="template: #right-hand-template; attachTemplateToLocal: true;"
-                    raycaster="objects: .clickable; line: 'color: red; opacity: 0.75'"
+                    networked="template: #right-hand-template; attachTemplateToLocal: false;"
+                    raycaster="objects: .clickable;"
                   ></a-entity>
                 `
               : html``

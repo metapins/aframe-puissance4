@@ -12,7 +12,7 @@ export class GameElement extends LitElement {
   }
 
   override render(): TemplateResult {
-    return html`<div data-router-outlet></div>`;
+    return html`<div class="fullsize" data-router-outlet></div>`;
   }
 
   override firstUpdated(): void {

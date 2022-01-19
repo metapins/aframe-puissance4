@@ -6,6 +6,7 @@ import '@marcbuils/puissance4-game/ui-puissance4';
 import '@marcbuils/puissance4-game/ui-reset';
 import { observe } from '@metapins/lit-observe';
 import {
+  AfterEnterObserver,
   BeforeEnterObserver,
   PreventAndRedirectCommands,
   Router,
@@ -25,16 +26,13 @@ declare const NAF: any;
 declare const AFRAME: any; // @todo: replace it by import { AFrame } from 'aframe';
 
 @customElement('p4g-game')
-export class GameElement extends LitElement implements BeforeEnterObserver {
+export class GameElement
+  extends LitElement
+  implements BeforeEnterObserver, AfterEnterObserver
+{
   @query('[data-router-outlet]') outlet!: Node;
   private isOwner$ = new BehaviorSubject(false);
   private isVRMode$ = new BehaviorSubject(false);
-
-  constructor() {
-    super();
-    this.initializeNAF();
-    this.initPuissance4();
-  }
 
   protected override createRenderRoot() {
     return this;
@@ -50,6 +48,11 @@ export class GameElement extends LitElement implements BeforeEnterObserver {
     }
 
     return undefined;
+  }
+
+  public onAfterEnter() {
+    this.initializeNAF();
+    this.initPuissance4();
   }
 
   protected override firstUpdated(): void {
@@ -147,6 +150,14 @@ export class GameElement extends LitElement implements BeforeEnterObserver {
           <a-asset-item
             id="puissance4-pawn"
             src="./assets/pawn.obj"
+          ></a-asset-item>
+          <a-asset-item
+            id="puissance4-forest"
+            src="./assets/forest.obj"
+          ></a-asset-item>
+          <a-asset-item
+            id="puissance4-arches"
+            src="./assets/arches.obj"
           ></a-asset-item>
 
           <!-- Camera Rig / Player -->

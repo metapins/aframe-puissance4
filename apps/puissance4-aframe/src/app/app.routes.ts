@@ -1,7 +1,7 @@
 export const routes = [
   {
     path: '/',
-    redirect: '/game/forest',
+    redirect: '/game/arches',
   },
   {
     path: '/game/(.*)',

@@ -12,7 +12,7 @@ import {
   Router,
   RouterLocation,
 } from '@vaadin/router';
-import 'aframe';
+import { utils } from 'aframe';
 import 'aframe-blink-controls';
 import 'aframe-environment-component';
 import 'aframe-extras';
@@ -23,7 +23,6 @@ import { BehaviorSubject } from 'rxjs';
 import { routes } from './puissance4-game-feature-game.routes';
 
 declare const NAF: any;
-declare const AFRAME: any; // @todo: replace it by import { AFrame } from 'aframe';
 
 @customElement('p4g-game')
 export class GameElement
@@ -218,7 +217,7 @@ export class GameElement
           </a-entity>
 
           ${observe(this.isVRMode$, (isVRMode) =>
-            isVRMode && !AFRAME.utils.device.isMobile()
+            isVRMode && !utils.device.isMobile()
               ? html`
                   <a-entity
                     shadow
